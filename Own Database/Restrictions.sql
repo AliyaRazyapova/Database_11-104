@@ -1,0 +1,21 @@
+ALTER TABLE driver ALTER COLUMN car_id SET NOT NULL;
+ALTER TABLE driver ALTER COLUMN category_license SET NOT NULL;
+
+ALTER TABLE car ALTER COLUMN plate_number SET NOT NULL;
+
+ALTER TABLE "Order" ALTER COLUMN driver_id SET NOT NULL;
+ALTER TABLE "Order" ALTER COLUMN client_id SET NOT NULL;
+ALTER TABLE "Order" ALTER COLUMN location_id SET NOT NULL;
+
+ALTER TABLE location_address ALTER COLUMN country SET NOT NULL;
+ALTER TABLE location_address ALTER COLUMN city SET NOT NULL;
+ALTER TABLE location_address ALTER COLUMN street SET NOT NULL;
+ALTER TABLE location_address ALTER COLUMN number_house SET NOT NULL;
+
+ALTER TABLE feedback ALTER COLUMN order_id SET NOT NULL;
+
+ALTER TABLE driver ADD CONSTRAINT one CHECK (rating > 0);
+ALTER TABLE client ADD CONSTRAINT two CHECK (rating > 0);
+ALTER TABLE feedback ADD CONSTRAINT tree CHECK (rating > 0);
+
+ALTER TABLE "Order" ADD CONSTRAINT four PRIMARY KEY (price);
